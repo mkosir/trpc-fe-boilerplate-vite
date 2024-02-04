@@ -1,0 +1,15 @@
+import superjson from 'superjson';
+import { AppRouter } from 'trpc-api-boilerplate';
+
+import { httpBatchLink } from '@trpc/client';
+import { createTRPCReact } from '@trpc/react-query';
+
+// Uncomment bellow line if not importing tRPC API from npm package - https://github.com/mkosir/trpc-api-boilerplate#avoid-publishing-package
+// import { AppRouter } from '../api-types';
+
+export const trpcApiBoilerplateClient = createTRPCReact<AppRouter>();
+
+export const trpcApiBoilerplateClientProvider = trpcApiBoilerplateClient.createClient({
+  links: [httpBatchLink({ url: import.meta.env.VITE_PUBLIC_TRPC_API })],
+  transformer: superjson,
+});
