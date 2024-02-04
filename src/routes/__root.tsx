@@ -1,5 +1,6 @@
+import { Suspense, lazy } from 'react';
+
 import { Link, Outlet, createRootRoute } from '@tanstack/react-router';
-import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 
 export const Route = createRootRoute({
   component: () => (
@@ -22,3 +23,17 @@ export const Route = createRootRoute({
     </>
   ),
 });
+
+const TanStackRouterDevtoolsLazy = import.meta.env.PROD
+  ? () => null
+  : lazy(() =>
+      import('@tanstack/router-devtools').then((res) => ({
+        default: res.TanStackRouterDevtools,
+      })),
+    );
+
+const TanStackRouterDevtools = () => (
+  <Suspense>
+    <TanStackRouterDevtoolsLazy />
+  </Suspense>
+);
