@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "trpc-api-import": "ts-node trpc-api-import/index.ts",
+    "trpc-api-import": "node --loader ts-node/esm trpc-api-import/index.ts",
     "prepare": "husky",
     "dev": "VITE_PUBLIC_TRPC_API=http://localhost:4000/trpc vite",
     "build": "tsc && vite build",
@@ -54,7 +54,6 @@
     "prettier": "3.2.5",
     "prettier-plugin-tailwindcss": "0.5.11",
     "tailwindcss": "3.4.1",
-    "ts-node": "10.9.2",
     "typescript": "5.3.3",
     "vite": "5.0.12",
     "vite-tsconfig-paths": "4.3.1"
