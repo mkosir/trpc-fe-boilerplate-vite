@@ -12,6 +12,7 @@ export const HomePage = () => {
 
   console.info('Exported from tRPC backend repo - SharedSquareObject: ', SharedSquareObject);
   console.info('Exported from tRPC backend repo - USER_ROLES: ', USER_ROLES);
+  console.info('https://github.com/mkosir/trpc-api-boilerplate/blob/main/trpc-api-export/builder/index.ts');
 
   return (
     <div className="mt-10 flex justify-center text-center">
