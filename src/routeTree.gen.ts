@@ -29,7 +29,7 @@ const IndexLazyRoute = IndexLazyImport.update({
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
-  type FileRoutesByPath = {
+  interface FileRoutesByPath {
     '/': {
       preLoaderRoute: typeof IndexLazyImport;
       parentRoute: typeof rootRoute;
@@ -42,7 +42,7 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UsersLazyImport;
       parentRoute: typeof rootRoute;
     };
-  };
+  }
 }
 
 // Create and export the route tree
