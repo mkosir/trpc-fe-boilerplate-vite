@@ -19,6 +19,7 @@
   "dependencies": {
     "@tanstack/react-query": "4.33.0",
     "@tanstack/react-query-devtools": "4.33.0",
+    "@tanstack/react-router": "1.15.17",
     "@trpc/client": "10.45.0",
     "@trpc/react-query": "10.45.0",
     "@trpc/server": "10.45.0",
@@ -29,6 +30,7 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
+    "@tanstack/router-vite-plugin": "1.15.11",
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
     "@types/node": "20.11.16",
     "@types/react": "18.2.52",
