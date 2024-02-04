@@ -47,7 +47,7 @@ module.exports = {
     'import/no-default-export': 'error',
   },
 
-  ignorePatterns: ['!.*', 'node_modules', 'dist', 'compiled', 'api-types'],
+  ignorePatterns: ['!.*', 'node_modules', 'dist', 'compiled', 'routeTree.gen.ts', 'api-types'],
 
   settings: { react: { version: 'detect' } },
 };

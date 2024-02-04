@@ -11,7 +11,6 @@ import ReactDOM from 'react-dom/client';
 
 const router = createRouter({ routeTree });
 
-// Register the router instance for type safety
 declare module '@tanstack/react-router' {
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
   interface Register {
