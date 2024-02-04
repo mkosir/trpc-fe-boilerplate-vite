@@ -1,4 +1,5 @@
-VersionInfo.ts
 coverage
 dist
 compiled
+VersionInfo.ts
+routeTree.gen.ts
