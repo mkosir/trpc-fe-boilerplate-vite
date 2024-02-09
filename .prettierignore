@@ -3,3 +3,4 @@ dist
 compiled
 VersionInfo.ts
 routeTree.gen.ts
+src/common/trpc-api-boilerplate/api-types
