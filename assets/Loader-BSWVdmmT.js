@@ -1,0 +1,1 @@
+import{j as r}from"./index-Bsed29Li.js";const a=()=>r.jsx("div",{className:"w inline-block h-5 w-5 animate-spin rounded-full border-[3px] border-current border-t-transparent text-blueSky-300",role:"status","aria-label":"loading",children:r.jsx("span",{className:"sr-only",children:"Loading..."})});export{a as L};
