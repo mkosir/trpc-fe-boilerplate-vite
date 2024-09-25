@@ -12,7 +12,7 @@ export const Route = createRootRoute({
         <Link to="/users" className="hover:text-blueSky-800 [&.active]:font-bold">
           Users
         </Link>
-        <Link to="/batches" className=" hover:text-blueSky-800 [&.active]:font-bold">
+        <Link to="/batches" className="hover:text-blueSky-800 [&.active]:font-bold">
           Batches
         </Link>
       </div>
