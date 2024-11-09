@@ -18,9 +18,9 @@ export const HomePage = () => {
     <div className="mt-10 flex justify-center text-center">
       <div>
         <img
-          src="https://raw.githubusercontent.com/mkosir/trpc-fe-boilerplate-vite/main/misc/heisenberg.png"
           alt="heisenberg"
           className="mx-auto mb-1 w-[110px]"
+          src="https://raw.githubusercontent.com/mkosir/trpc-fe-boilerplate-vite/main/misc/heisenberg.png"
         />
         <div className="mb-1 text-lg font-medium">tRPC Frontend Boilerplate</div>
         <button

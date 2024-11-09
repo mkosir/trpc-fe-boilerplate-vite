@@ -1,13 +1,13 @@
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { RouterProvider, createHashHistory, createRouter } from '@tanstack/react-router';
 import { StrictMode } from 'react';
+import ReactDOM from 'react-dom/client';
 
 import { reactQueryClient } from './common/reactQueryClient';
 import './common/styles/global.css';
 import { trpcApiBoilerplateClient, trpcApiBoilerplateClientProvider } from './common/trpc-api-boilerplate';
 import { routeTree } from './routeTree.gen';
-import { QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { RouterProvider, createHashHistory, createRouter } from '@tanstack/react-router';
-import ReactDOM from 'react-dom/client';
 
 // GitHub pages - use hash routing since server doesn't support rewrites to index.html for HTTP requests.
 const hashHistory = createHashHistory();

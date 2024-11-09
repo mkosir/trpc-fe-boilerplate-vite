@@ -1,5 +1,6 @@
 import { Loader } from '../../common/components';
 import { trpcApiBoilerplateClient } from '../../common/trpc-api-boilerplate';
+
 import { UserCard } from './UserCard';
 
 export const UsersPage = () => {

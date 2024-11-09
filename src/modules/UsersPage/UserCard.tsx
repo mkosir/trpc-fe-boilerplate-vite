@@ -5,7 +5,7 @@ export type UserCardProps = {
 };
 
 export const UserCard = ({ user }: UserCardProps) => {
-  const utils = trpcApiBoilerplateClient.useContext();
+  const utils = trpcApiBoilerplateClient.useUtils();
 
   const handleUserDeleteSuccess = async (users: Users) => {
     console.info('Deleted user: ', users);
@@ -34,7 +34,7 @@ export const UserCard = ({ user }: UserCardProps) => {
           {isDeletingUser ? <span className="animate-pulse">Deleting...</span> : 'Delete'}
         </button>
       </div>
-      <img src={user.imageUrl ?? 'no-user.jpg'} alt={user.username} className="ml-4 h-24 rounded" />
+      <img alt={user.username} className="ml-4 h-24 rounded" src={user.imageUrl ?? 'no-user.jpg'} />
     </div>
   );
 };
