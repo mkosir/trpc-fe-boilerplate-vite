@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-const tailwindConfig = {
+import type { Config } from 'tailwindcss';
+
+const tailwindConfig: Config = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
@@ -20,9 +21,9 @@ const tailwindConfig = {
       },
       keyframes: {
         'text-appear': {
-          '0%': { opacity: 0, transform: 'translateY(0)' },
-          '50%': { opacity: 1 },
-          '100%': { opacity: 0, transform: 'translateY(-80%)' },
+          '0%': { opacity: '0', transform: 'translateY(0)' },
+          '50%': { opacity: '1' },
+          '100%': { opacity: '0', transform: 'translateY(-80%)' },
         },
       },
       animation: {
