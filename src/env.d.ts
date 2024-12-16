@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
-// / <reference types="vite/client" />
+// eslint-disable-next-line spaced-comment
+/// <reference types="vite/client" />
 
 interface ImportMetaEnv {
   readonly VITE_PUBLIC_TRPC_API: string;
