@@ -1,4 +1,5 @@
-import { User, Users, trpcApiBoilerplateClient } from '../../common/trpc-api-boilerplate';
+import type { User, Users } from '../../common/trpc-api-boilerplate';
+import { trpcApiBoilerplateClient } from '../../common/trpc-api-boilerplate';
 
 export type UserCardProps = {
   user: User;
