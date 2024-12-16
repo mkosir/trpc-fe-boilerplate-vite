@@ -5,9 +5,9 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { reactQueryClient } from './common/reactQueryClient';
-import './common/styles/global.css';
 import { trpcApiBoilerplateClient, trpcApiBoilerplateClientProvider } from './common/trpc-api-boilerplate';
 import { routeTree } from './routeTree.gen';
+import './common/styles/global.css';
 
 // GitHub pages - use hash routing since server doesn't support rewrites to index.html for HTTP requests.
 const hashHistory = createHashHistory();
