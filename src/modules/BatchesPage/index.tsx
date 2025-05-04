@@ -1,8 +1,10 @@
+import { useQuery } from '@tanstack/react-query';
+
 import { Loader } from '../../common/components';
-import { trpcApiBoilerplateClient } from '../../common/trpc-api-boilerplate';
+import { trpc } from '../../common/trpc-api-boilerplate';
 
 export const BatchesPage = () => {
-  const { data: batches } = trpcApiBoilerplateClient.batch.list.useQuery();
+  const { data: batches } = useQuery(trpc.batch.list.queryOptions());
 
   return (
     <div>

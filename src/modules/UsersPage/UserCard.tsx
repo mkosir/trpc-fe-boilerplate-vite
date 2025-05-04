@@ -1,21 +1,23 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
 import type { User, Users } from '../../common/trpc-api-boilerplate';
-import { trpcApiBoilerplateClient } from '../../common/trpc-api-boilerplate';
+import { trpc } from '../../common/trpc-api-boilerplate';
 
 export type UserCardProps = {
   user: User;
 };
 
 export const UserCard = ({ user }: UserCardProps) => {
-  const utils = trpcApiBoilerplateClient.useUtils();
+  const queryClient = useQueryClient();
 
   const handleUserDeleteSuccess = async (users: Users) => {
     console.info('Deleted user: ', users);
-    await utils.user.list.invalidate();
+    await queryClient.invalidateQueries({ queryKey: trpc.user.list.queryOptions().queryKey });
   };
 
-  const { mutate: mutateDeleteUser, isLoading: isDeletingUser } = trpcApiBoilerplateClient.user.destroy.useMutation({
-    onSuccess: handleUserDeleteSuccess,
-  });
+  const { mutate: mutateDeleteUser, isPending: isDeletingUser } = useMutation(
+    trpc.user.destroy.mutationOptions({ onSuccess: handleUserDeleteSuccess }),
+  );
 
   const handleUserDelete = () => {
     mutateDeleteUser({ id: user.id });

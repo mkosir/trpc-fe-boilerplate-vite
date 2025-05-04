@@ -1,10 +1,12 @@
+import { useQuery } from '@tanstack/react-query';
+
 import { Loader } from '../../common/components';
-import { trpcApiBoilerplateClient } from '../../common/trpc-api-boilerplate';
+import { trpc } from '../../common/trpc-api-boilerplate';
 
 import { UserCard } from './UserCard';
 
 export const UsersPage = () => {
-  const { data: users } = trpcApiBoilerplateClient.user.list.useQuery();
+  const { data: users } = useQuery(trpc.user.list.queryOptions());
 
   return (
     <div>

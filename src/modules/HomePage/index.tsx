@@ -1,14 +1,13 @@
+import { useMutation } from '@tanstack/react-query';
 import { useState } from 'react';
 import { SharedSquareObject, USER_ROLES } from 'trpc-api-boilerplate';
 
-import { trpcApiBoilerplateClient } from '../../common/trpc-api-boilerplate';
+import { trpc } from '../../common/trpc-api-boilerplate';
 
 export const HomePage = () => {
   const [dbSeedMessage, setDbSeedMessage] = useState<null | string>(null);
 
-  const { mutate: mutateSeedDb } = trpcApiBoilerplateClient.util.seedDb.useMutation({
-    onSuccess: setDbSeedMessage,
-  });
+  const { mutate: mutateSeedDb } = useMutation(trpc.util.seedDb.mutationOptions({ onSuccess: setDbSeedMessage }));
 
   console.info('Exported from tRPC backend repo - SharedSquareObject: ', SharedSquareObject);
   console.info('Exported from tRPC backend repo - USER_ROLES: ', USER_ROLES);

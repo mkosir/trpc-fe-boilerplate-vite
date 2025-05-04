@@ -5,7 +5,6 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { reactQueryClient } from './common/reactQueryClient';
-import { trpcApiBoilerplateClient, trpcApiBoilerplateClientProvider } from './common/trpc-api-boilerplate';
 import { routeTree } from './routeTree.gen';
 import './common/styles/global.css';
 
@@ -27,12 +26,10 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
-      <trpcApiBoilerplateClient.Provider client={trpcApiBoilerplateClientProvider} queryClient={reactQueryClient}>
-        <QueryClientProvider client={reactQueryClient}>
-          <RouterProvider router={router} />
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-      </trpcApiBoilerplateClient.Provider>
+      <QueryClientProvider client={reactQueryClient}>
+        <RouterProvider router={router} />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
     </StrictMode>,
   );
 }
