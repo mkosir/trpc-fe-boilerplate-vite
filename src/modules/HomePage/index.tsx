@@ -24,14 +24,14 @@ export const HomePage = () => {
         />
         <div className="mb-1 text-lg font-medium">tRPC Frontend Boilerplate</div>
         <button
-          className="mb-5 rounded bg-blueSky-400 p-1 px-3 text-sm text-white hover:bg-blueSky-500 active:bg-blueSky-600"
+          className="bg-blue-sky-400 hover:bg-blue-sky-500 active:bg-blue-sky-600 mb-5 rounded-sm p-1 px-3 text-sm text-white"
           onClick={() => mutateSeedDb()}
         >
           Seed DB
         </button>
         {dbSeedMessage && (
           <div
-            className="animate-text-appear text-sm text-blueSky-300 opacity-0"
+            className="animate-text-appear text-blue-sky-300 text-sm opacity-0"
             onAnimationEnd={() => setDbSeedMessage(null)}
           >
             {dbSeedMessage}

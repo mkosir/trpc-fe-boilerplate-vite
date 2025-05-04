@@ -4,14 +4,14 @@ import { Suspense, lazy } from 'react';
 export const Route = createRootRoute({
   component: () => (
     <>
-      <div className="flex gap-4 bg-blueSky-100/40 p-3 text-blueSky-700">
-        <Link className="hover:text-blueSky-800 [&.active]:font-bold" to="/">
+      <div className="bg-blue-sky-100/40 text-blue-sky-700 flex gap-4 p-3">
+        <Link className="hover:text-blue-sky-800 [&.active]:font-bold" to="/">
           Home
         </Link>
-        <Link className="hover:text-blueSky-800 [&.active]:font-bold" to="/users">
+        <Link className="hover:text-blue-sky-800 [&.active]:font-bold" to="/users">
           Users
         </Link>
-        <Link className="hover:text-blueSky-800 [&.active]:font-bold" to="/batches">
+        <Link className="hover:text-blue-sky-800 [&.active]:font-bold" to="/batches">
           Batches
         </Link>
       </div>

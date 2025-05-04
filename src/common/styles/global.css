@@ -1,3 +1,31 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-blue-sky-50: #9ecee1;
+  --color-blue-sky-100: #8bc4da;
+  --color-blue-sky-200: #77bad4;
+  --color-blue-sky-300: #64b0ce;
+  --color-blue-sky-400: #50a6c8;
+  --color-blue-sky-500: #3d9cc2;
+  --color-blue-sky-600: #378caf;
+  --color-blue-sky-700: #317d9b;
+  --color-blue-sky-800: #2b6d88;
+  --color-blue-sky-900: #255e74;
+  --color-blue-sky-950: #1f4e61;
+
+  --animate-text-appear: text-appear 2.5s 1;
+
+  @keyframes text-appear {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-80%);
+    }
+  }
+}

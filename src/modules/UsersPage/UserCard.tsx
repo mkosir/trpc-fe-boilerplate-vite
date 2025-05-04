@@ -22,20 +22,20 @@ export const UserCard = ({ user }: UserCardProps) => {
   };
 
   return (
-    <div className="mb-4 mr-4 flex w-72 justify-between rounded-md bg-blueSky-50/5 p-3 shadow shadow-blueSky-500/60">
+    <div className="bg-blue-sky-50/5 shadow-blue-sky-500/60 mr-4 mb-4 flex w-72 justify-between rounded-md p-3 shadow-sm">
       <div>
         <div>{user.name}</div>
-        <div className="italic text-gray-400">{user.username}</div>
+        <div className="text-gray-400 italic">{user.username}</div>
         <div className="capitalize">{user.role}</div>
         <button
-          className="rounded bg-blueSky-400 p-0.5 px-2 text-xs text-white hover:bg-blueSky-500 active:bg-blueSky-600"
+          className="bg-blue-sky-400 hover:bg-blue-sky-500 active:bg-blue-sky-600 rounded-sm p-0.5 px-2 text-xs text-white"
           disabled={isDeletingUser}
           onClick={handleUserDelete}
         >
           {isDeletingUser ? <span className="animate-pulse">Deleting...</span> : 'Delete'}
         </button>
       </div>
-      <img alt={user.username} className="ml-4 h-24 rounded" src={user.imageUrl ?? 'no-user.jpg'} />
+      <img alt={user.username} className="ml-4 h-24 rounded-sm" src={user.imageUrl ?? 'no-user.jpg'} />
     </div>
   );
 };
