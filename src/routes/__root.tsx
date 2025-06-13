@@ -1,4 +1,4 @@
-import { Link, Outlet, createRootRoute } from '@tanstack/react-router';
+import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
 import { Suspense, lazy } from 'react';
 
 export const Route = createRootRoute({
