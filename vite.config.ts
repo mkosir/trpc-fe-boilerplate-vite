@@ -8,7 +8,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
-    // Please make sure that '@tanstack/router-plugin' is passed before '@vitejs/plugin-react'
+    // Please make sure that '@tanstack/router-plugin' is passed before '@vitejs/plugin-react'.
     tanstackRouter({
       target: 'react',
       autoCodeSplitting: true,
@@ -16,5 +16,6 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/trpc-fe-boilerplate-vite', // GitHub pages path prefix
+  // GitHub pages path prefix.
+  base: '/trpc-fe-boilerplate-vite',
 });
