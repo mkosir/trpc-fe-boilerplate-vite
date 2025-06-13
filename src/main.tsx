@@ -13,6 +13,7 @@ const hashHistory = createHashHistory();
 
 const router = createRouter({ routeTree, history: hashHistory });
 
+// Register the router instance for type safety
 declare module '@tanstack/react-router' {
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
   interface Register {
