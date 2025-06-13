@@ -1,7 +1,7 @@
-import { createLazyFileRoute } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router';
 
 import { BatchesPage } from 'modules';
 
-export const Route = createLazyFileRoute('/batches')({
+export const Route = createFileRoute('/batches')({
   component: BatchesPage,
 });

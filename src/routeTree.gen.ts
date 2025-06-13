@@ -8,45 +8,42 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { createFileRoute } from '@tanstack/react-router'
-
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UsersRouteImport } from './routes/users'
+import { Route as BatchesRouteImport } from './routes/batches'
+import { Route as IndexRouteImport } from './routes/index'
 
-const UsersLazyRouteImport = createFileRoute('/users')()
-const BatchesLazyRouteImport = createFileRoute('/batches')()
-const IndexLazyRouteImport = createFileRoute('/')()
-
-const UsersLazyRoute = UsersLazyRouteImport.update({
+const UsersRoute = UsersRouteImport.update({
   id: '/users',
   path: '/users',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/users').then((d) => d.Route))
-const BatchesLazyRoute = BatchesLazyRouteImport.update({
+} as any)
+const BatchesRoute = BatchesRouteImport.update({
   id: '/batches',
   path: '/batches',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/batches').then((d) => d.Route))
-const IndexLazyRoute = IndexLazyRouteImport.update({
+} as any)
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes').then((d) => d.Route))
+} as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexLazyRoute
-  '/batches': typeof BatchesLazyRoute
-  '/users': typeof UsersLazyRoute
+  '/': typeof IndexRoute
+  '/batches': typeof BatchesRoute
+  '/users': typeof UsersRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexLazyRoute
-  '/batches': typeof BatchesLazyRoute
-  '/users': typeof UsersLazyRoute
+  '/': typeof IndexRoute
+  '/batches': typeof BatchesRoute
+  '/users': typeof UsersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexLazyRoute
-  '/batches': typeof BatchesLazyRoute
-  '/users': typeof UsersLazyRoute
+  '/': typeof IndexRoute
+  '/batches': typeof BatchesRoute
+  '/users': typeof UsersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -57,9 +54,9 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexLazyRoute: typeof IndexLazyRoute
-  BatchesLazyRoute: typeof BatchesLazyRoute
-  UsersLazyRoute: typeof UsersLazyRoute
+  IndexRoute: typeof IndexRoute
+  BatchesRoute: typeof BatchesRoute
+  UsersRoute: typeof UsersRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,30 +65,30 @@ declare module '@tanstack/react-router' {
       id: '/users'
       path: '/users'
       fullPath: '/users'
-      preLoaderRoute: typeof UsersLazyRouteImport
+      preLoaderRoute: typeof UsersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/batches': {
       id: '/batches'
       path: '/batches'
       fullPath: '/batches'
-      preLoaderRoute: typeof BatchesLazyRouteImport
+      preLoaderRoute: typeof BatchesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexLazyRouteImport
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexLazyRoute: IndexLazyRoute,
-  BatchesLazyRoute: BatchesLazyRoute,
-  UsersLazyRoute: UsersLazyRoute,
+  IndexRoute: IndexRoute,
+  BatchesRoute: BatchesRoute,
+  UsersRoute: UsersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
