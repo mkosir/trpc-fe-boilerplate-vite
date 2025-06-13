@@ -20,17 +20,17 @@ const UsersLazyRoute = UsersLazyRouteImport.update({
   id: '/users',
   path: '/users',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/users.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/users').then((d) => d.Route))
 const BatchesLazyRoute = BatchesLazyRouteImport.update({
   id: '/batches',
   path: '/batches',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/batches.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes/batches').then((d) => d.Route))
 const IndexLazyRoute = IndexLazyRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+} as any).lazy(() => import('./routes').then((d) => d.Route))
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexLazyRoute
