@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom/client';
 
 import { reactQueryClient } from './common/reactQueryClient';
 import { routeTree } from './routeTree.gen';
+
 import './common/styles/global.css';
 
 // GitHub pages - use hash routing since server doesn't support rewrites to index.html for HTTP requests.
