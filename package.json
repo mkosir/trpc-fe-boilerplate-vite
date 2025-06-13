@@ -34,7 +34,7 @@
     "@eslint/js": "9.29.0",
     "@tailwindcss/postcss": "4.1.10",
     "@tailwindcss/vite": "4.1.10",
-    "@tanstack/router-vite-plugin": "1.121.10",
+    "@tanstack/router-plugin": "1.121.10",
     "@types/eslint": "9.6.1",
     "@types/node": "24.0.1",
     "@types/react": "19.1.8",
