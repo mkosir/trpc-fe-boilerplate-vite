@@ -11,7 +11,10 @@ import './common/styles/global.css';
 // GitHub pages - use hash routing since server doesn't support rewrites to index.html for HTTP requests.
 const hashHistory = createHashHistory();
 
-const router = createRouter({ routeTree, history: hashHistory });
+const router = createRouter({
+  routeTree,
+  history: hashHistory,
+});
 
 // Register the router instance for type safety
 declare module '@tanstack/react-router' {
