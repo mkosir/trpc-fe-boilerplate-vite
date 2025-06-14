@@ -4,6 +4,7 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { reactQueryClient } from './common/reactQueryClient';
+import { trpc } from './common/trpc-api-boilerplate/client';
 import { routeTree } from './routeTree.gen';
 
 import './common/styles/global.css';
@@ -14,6 +15,9 @@ const hashHistory = createHashHistory();
 const router = createRouter({
   routeTree,
   history: hashHistory,
+  context: {
+    trpc,
+  },
 });
 
 // Register the router instance for type safety
