@@ -8,7 +8,12 @@ import { reactQueryClient } from '../../reactQueryClient';
 // import type { AppRouter } from '../api-types';
 
 const trpcClient = createTRPCClient<AppRouter>({
-  links: [httpBatchLink({ url: import.meta.env.VITE_PUBLIC_TRPC_API, transformer: superjson })],
+  links: [
+    httpBatchLink({
+      url: import.meta.env.VITE_PUBLIC_TRPC_API,
+      transformer: superjson,
+    }),
+  ],
 });
 
 export const trpc = createTRPCOptionsProxy<AppRouter>({
