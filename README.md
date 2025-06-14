@@ -21,18 +21,23 @@ _Easily set up a local development environment_
 - Clone the repo
 - Run `npm install`
 - Run `npm run dev`
-- Use tRPC API [package](https://www.npmjs.com/package/trpc-api-boilerplate) in your app 🚀
+- Use the [tRPC API package](https://www.npmjs.com/package/trpc-api-boilerplate) in your app 🚀
 
 ## Import tRPC API
 
-There are 2 ways to import tRPC API types from backend repo:
+There are two ways to import tRPC API types from the backend repo:
 
-1. Install npm package `npm i trpc-api-boilerplate` (currently [set](https://github.com/mkosir/trpc-fe-boilerplate-vite/blob/main/src/common/trpc-api-boilerplate/client/index.ts#L4) as a default option)
-2. Run npm script `npm run trpc-api-import` ([uncomment line](https://github.com/mkosir/trpc-fe-boilerplate-vite/blob/main/src/common/trpc-api-boilerplate/client/index.ts#L8))
+1. Install the npm package:  
+   `npm install trpc-api-boilerplate`  
+   _(currently [set](https://github.com/mkosir/trpc-fe-boilerplate-vite/blob/main/src/common/trpc-api-boilerplate/client/index.ts#L4) as the default option)_
 
-## Example Repo
+2. Run the script:  
+   `npm run trpc-api-import`  
+   _(uncomment [this line](https://github.com/mkosir/trpc-fe-boilerplate-vite/blob/main/src/common/trpc-api-boilerplate/client/index.ts#L8))_
 
-Example backend API repository - [tRPC API Boilerplate](https://github.com/mkosir/trpc-api-boilerplate)
+## Example Backend Repo
+
+- [tRPC API Boilerplate](https://github.com/mkosir/trpc-api-boilerplate)
 
 <!-- Badges -->
 
