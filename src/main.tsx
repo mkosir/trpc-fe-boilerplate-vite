@@ -17,6 +17,7 @@ const router = createRouter({
   history: hashHistory,
   context: {
     trpc,
+    reactQueryClient,
   },
 });
 

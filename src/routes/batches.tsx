@@ -1,10 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import { reactQueryClient } from '../common/reactQueryClient';
-
 export const Route = createFileRoute('/batches')({
   component: BatchesComponent,
-  loader: ({ context: { trpc } }) => reactQueryClient.ensureQueryData(trpc.batch.list.queryOptions()),
+  loader: ({ context: { trpc, reactQueryClient } }) => reactQueryClient.ensureQueryData(trpc.batch.list.queryOptions()),
 });
 
 function BatchesComponent() {
