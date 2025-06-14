@@ -2,17 +2,17 @@
 
 [![CI][ci-badge]][ci-url]
 
-Minimal [tRPC](https://trpc.io/) frontend boilerplate (Vite) for separate BE-FE repositories. Easily consume fully typesafe APIs.
+Minimal [tRPC](https://trpc.io/) frontend Vite boilerplate for projects with separate backend and frontend repositories. Easily consume fully typesafe APIs.
 
-Monorepos are great, but sometimes we are targeting backend and frontend as separate (mono)repositories.
+Monorepos are great, but sometimes the architecture requires separating the backend and frontend into distinct repositories.
 
-We might aim for backend and frontend repositories separation of:
+### Why use this?
 
-- domain/business logic - expose only what need to be exposed through API.
-- developers - larger teams/companies.
-- CI/CD pipelines, PRs, issues, etc.
+This boilerplate is ideal when you want to separate:
 
-... in that case checkout this boilerplate.
+- **Domain/business logic** – expose only what needs to be exposed through the API.
+- **Developer responsibilities** – for larger teams/companies.
+- **CI/CD pipelines** – manage PRs, issues, and deployments independently.
 
 ## Running
 
