@@ -1,7 +1,13 @@
-import { createRootRoute, Link, Outlet } from '@tanstack/react-router';
+import { createRootRouteWithContext, Link, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
-export const Route = createRootRoute({
+import type { trpc } from '../common/trpc-api-boilerplate';
+
+export type RouterAppContext = {
+  trpc: typeof trpc;
+};
+
+export const Route = createRootRouteWithContext<RouterAppContext>()({
   component: () => (
     <>
       <div className="bg-blue-sky-100/40 text-blue-sky-700 flex gap-4 p-3">

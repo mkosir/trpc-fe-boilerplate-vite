@@ -1,31 +1,26 @@
-import { useQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 
-import { Loader } from '../common/components';
-import { trpc } from '../common/trpc-api-boilerplate';
+import { reactQueryClient } from '../common/reactQueryClient';
 
 export const Route = createFileRoute('/batches')({
   component: BatchesComponent,
+  loader: ({ context: { trpc } }) => reactQueryClient.ensureQueryData(trpc.batch.list.queryOptions()),
 });
 
 function BatchesComponent() {
-  const { data: batches } = useQuery(trpc.batch.list.queryOptions());
+  const batches = Route.useLoaderData();
 
   return (
     <div>
       <h3>💊 Batches</h3>
-      <div className="my-2 italic">Total No. of batches: {batches?.length}</div>
-      {!batches ? (
-        <Loader />
-      ) : (
-        <ul className="list-inside list-disc">
-          {batches.map((batch) => (
-            <li key={batch.id}>
-              {batch.title} - {batch.weight}kg - {batch.purity}%
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="my-2 italic">Total No. of batches: {batches.length}</div>
+      <ul className="list-inside list-disc">
+        {batches.map((batch) => (
+          <li key={batch.id}>
+            {batch.title} - {batch.weight}kg - {batch.purity}%
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
