@@ -18,10 +18,10 @@ This boilerplate is ideal when you want to separate:
 
 _Easily set up a local development environment_
 
-- clone repo
-- `npm install`
-- `npm run dev`
-- use latest tRPC API [package](https://www.npmjs.com/package/trpc-api-boilerplate) in your app 🚀
+- Clone the repo
+- Run `npm install`
+- Run `npm run dev`
+- Use tRPC API [package](https://www.npmjs.com/package/trpc-api-boilerplate) in your app 🚀
 
 ## Import tRPC API
 
