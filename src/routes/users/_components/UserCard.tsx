@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import type { User } from '../../../common/trpc-api-boilerplate';
-import { trpc } from '../../../common/trpc-api-boilerplate';
+import type { User } from '@/common/trpc-api-boilerplate';
+import { trpc } from '@/common/trpc-api-boilerplate';
 
 export type UserCardProps = {
   user: User;

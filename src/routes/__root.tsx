@@ -1,8 +1,8 @@
 import { createRootRouteWithContext, Link, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
 
-import type { reactQueryClient } from '../common/reactQueryClient';
-import type { trpc } from '../common/trpc-api-boilerplate';
+import type { reactQueryClient } from '@/common/reactQueryClient';
+import type { trpc } from '@/common/trpc-api-boilerplate';
 
 export type RouterAppContext = {
   trpc: typeof trpc;

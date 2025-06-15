@@ -3,7 +3,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import { SharedSquareObject, USER_ROLES } from 'trpc-api-boilerplate';
 
-import { trpc } from '../common/trpc-api-boilerplate';
+import { trpc } from '@/common/trpc-api-boilerplate';
 
 export const Route = createFileRoute('/')({
   component: HomeComponent,

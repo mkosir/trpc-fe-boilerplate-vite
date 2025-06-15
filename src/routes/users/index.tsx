@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 
-import { Loader } from '../../common/components';
-import { trpc } from '../../common/trpc-api-boilerplate';
+import { Loader } from '@/common/components';
+import { trpc } from '@/common/trpc-api-boilerplate';
 
 import { UserCard } from './_components/UserCard';
 
