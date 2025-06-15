@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import type { User, Users } from '../../common/trpc-api-boilerplate';
-import { trpc } from '../../common/trpc-api-boilerplate';
+import type { User } from '../../../common/trpc-api-boilerplate';
+import { trpc } from '../../../common/trpc-api-boilerplate';
 
 export type UserCardProps = {
   user: User;
@@ -10,17 +10,18 @@ export type UserCardProps = {
 export const UserCard = ({ user }: UserCardProps) => {
   const queryClient = useQueryClient();
 
-  const handleUserDeleteSuccess = async (users: Users) => {
-    console.info('Deleted user: ', users);
-    await queryClient.invalidateQueries({ queryKey: trpc.user.list.queryOptions().queryKey });
-  };
-
-  const { mutate: mutateDeleteUser, isPending: isDeletingUser } = useMutation(
-    trpc.user.destroy.mutationOptions({ onSuccess: handleUserDeleteSuccess }),
+  const { mutate: deleteUser, isPending: isDeleting } = useMutation(
+    trpc.user.destroy.mutationOptions({
+      onSuccess: async () => {
+        await queryClient.invalidateQueries({
+          queryKey: trpc.user.list.queryOptions().queryKey,
+        });
+      },
+    }),
   );
 
-  const handleUserDelete = () => {
-    mutateDeleteUser({ id: user.id });
+  const handleDelete = () => {
+    deleteUser({ id: user.id });
   };
 
   return (
@@ -31,10 +32,10 @@ export const UserCard = ({ user }: UserCardProps) => {
         <div className="capitalize">{user.role}</div>
         <button
           className="bg-blue-sky-400 hover:bg-blue-sky-500 active:bg-blue-sky-600 rounded-sm p-0.5 px-2 text-xs text-white"
-          disabled={isDeletingUser}
-          onClick={handleUserDelete}
+          disabled={isDeleting}
+          onClick={handleDelete}
         >
-          {isDeletingUser ? <span className="animate-pulse">Deleting...</span> : 'Delete'}
+          {isDeleting ? <span className="animate-pulse">Deleting...</span> : 'Delete'}
         </button>
       </div>
       <img alt={user.username} className="ml-4 h-24 rounded-sm" src={user.imageUrl ?? 'no-user.jpg'} />
