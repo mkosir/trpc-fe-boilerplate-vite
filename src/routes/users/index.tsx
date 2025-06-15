@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { createFileRoute } from '@tanstack/react-router';
 
-import { Loader } from '../common/components';
-import { trpc } from '../common/trpc-api-boilerplate';
-import { UserCard } from '../modules/UsersPage/UserCard';
+import { Loader } from '../../common/components';
+import { trpc } from '../../common/trpc-api-boilerplate';
 
-export const Route = createFileRoute('/users')({
+import { UserCard } from './UserCard';
+
+export const Route = createFileRoute('/users/')({
   component: UsersComponent,
 });
 
