@@ -9,7 +9,10 @@ import { UserCard } from './components/UserCard';
 export const Route = createFileRoute('/users/')({
   component: UsersComponent,
   // Warm up the React Query cache, by prefetching only, don't block navigation.
-  loader: ({ context: { trpc, reactQueryClient } }) => reactQueryClient.prefetchQuery(trpc.user.list.queryOptions()),
+  loader: ({ context: { trpc, reactQueryClient } }) => {
+    // Fire and forget,do not return the promise.
+    void reactQueryClient.prefetchQuery(trpc.user.list.queryOptions());
+  },
 });
 
 function UsersComponent() {
