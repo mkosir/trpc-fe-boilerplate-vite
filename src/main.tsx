@@ -15,11 +15,11 @@ const hashHistory = createHashHistory();
 const router = createRouter({
   routeTree,
   defaultPreload: 'intent',
-  history: hashHistory,
   context: {
     trpc,
     reactQueryClient,
   },
+  history: hashHistory,
 });
 
 // Register the router instance for type safety
