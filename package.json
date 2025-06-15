@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "trpc-api-import": "npx tsx trpc-api-import/index.ts",
+    "trpc-api-import": "npx tsx scripts/trpc-api-import.ts",
     "prepare": "husky",
     "dev": "VITE_PUBLIC_TRPC_API=http://localhost:4000/trpc vite",
     "build": "tsc -b && vite build",
