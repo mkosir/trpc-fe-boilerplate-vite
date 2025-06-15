@@ -60,10 +60,11 @@ const trpcApiImport = async () => {
     }),
   );
 
-  console.log('### tRPC API successfully imported. ###');
+  console.log('\x1b[32m✅ tRPC API successfully imported.\x1b[0m');
 };
 
 trpcApiImport().catch((error: unknown) => {
-  console.error('Failed to import tRPC API: ', error);
+  console.error('\x1b[31m❌ Failed to import tRPC API:\x1b[0m', error);
+
   process.exit(1);
 });
