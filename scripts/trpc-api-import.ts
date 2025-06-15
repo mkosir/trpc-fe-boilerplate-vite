@@ -1,5 +1,11 @@
-// Use the trpc-api-import script if not importing tRPC API from npm package - https://github.com/mkosir/trpc-api-boilerplate?tab=readme-ov-file#avoid-publishing-the-package
+// This script is used to import the tRPC API types directly from the GitHub repository,
+// instead of consuming the tRPC API as an npm package.
+// See: https://github.com/mkosir/trpc-api-boilerplate?tab=readme-ov-file#avoid-publishing-the-package
+//
+// Only use this script if you're not publishing the tRPC API to npm.
+// It fetches the built API files from the repo and writes them into your local project.
 import fs from 'fs';
+import path from 'path';
 
 import { Octokit } from 'octokit';
 
@@ -27,29 +33,37 @@ const TRPC_API_DIST = {
   ],
 } as const satisfies TrpcApiDist;
 
-const trpcApiImport = () => {
+const trpcApiImport = async () => {
   const octokit = new Octokit({
     // Provide token if using private GitHub repository
     // auth: <GITHUB_TOKEN>,
   });
 
-  void TRPC_API_DIST.filePaths.map(async (trpcApiFilePath) => {
-    const octokitResponse = await octokit.rest.repos.getContent({
-      owner: TRPC_API_DIST.owner,
-      repo: TRPC_API_DIST.repository,
-      path: trpcApiFilePath.sourcePath,
-    });
+  await Promise.all(
+    TRPC_API_DIST.filePaths.map(async (trpcApiFilePath) => {
+      const octokitResponse = await octokit.rest.repos.getContent({
+        owner: TRPC_API_DIST.owner,
+        repo: TRPC_API_DIST.repository,
+        path: trpcApiFilePath.sourcePath,
+      });
 
-    if (!('content' in octokitResponse.data)) {
-      throw Error(`Error: No content available to download - File ${trpcApiFilePath.sourcePath}.`);
-    }
+      if (!('content' in octokitResponse.data)) {
+        throw new Error(`Error: No content available to download - File ${trpcApiFilePath.sourcePath}.`);
+      }
 
-    const decodedFileContent = Buffer.from(octokitResponse.data.content, 'base64');
+      const decodedFileContent = Buffer.from(octokitResponse.data.content, 'base64');
 
-    fs.writeFileSync(trpcApiFilePath.targetPath, decodedFileContent);
-  });
+      const targetDir = path.dirname(trpcApiFilePath.targetPath);
+      fs.mkdirSync(targetDir, { recursive: true });
+
+      fs.writeFileSync(trpcApiFilePath.targetPath, decodedFileContent);
+    }),
+  );
 
   console.log('### tRPC API successfully imported. ###');
 };
 
-trpcApiImport();
+trpcApiImport().catch((error: unknown) => {
+  console.error('Failed to import tRPC API: ', error);
+  process.exit(1);
+});
