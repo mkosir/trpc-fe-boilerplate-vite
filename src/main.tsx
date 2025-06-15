@@ -14,6 +14,7 @@ const hashHistory = createHashHistory();
 
 const router = createRouter({
   routeTree,
+  defaultPreload: 'intent',
   history: hashHistory,
   context: {
     trpc,
