@@ -1,3 +1,4 @@
+// Use the trpc-api-import script if not importing tRPC API from npm package - https://github.com/mkosir/trpc-api-boilerplate?tab=readme-ov-file#avoid-publishing-the-package
 import fs from 'fs';
 
 import { Octokit } from 'octokit';
