@@ -4,7 +4,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { Loader } from '../../common/components';
 import { trpc } from '../../common/trpc-api-boilerplate';
 
-import { UserCard } from './components/UserCard';
+import { UserCard } from './_components/UserCard';
 
 export const Route = createFileRoute('/users/')({
   component: UsersComponent,
