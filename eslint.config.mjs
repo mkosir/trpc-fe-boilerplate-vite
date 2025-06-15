@@ -1,16 +1,16 @@
-import eslintConfigPrettier from 'eslint-config-prettier';
-import eslintPluginImport from 'eslint-plugin-import';
-import eslintPluginReact from 'eslint-plugin-react';
-import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
-import tseslint from 'typescript-eslint';
-
 import eslint from '@eslint/js';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
+import * as eslintPluginImportX from 'eslint-plugin-import-x';
+import eslintPluginReact from 'eslint-plugin-react';
+import * as eslintPluginReactHooks from 'eslint-plugin-react-hooks';
+import * as tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   eslint.configs.recommended,
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
-  eslintPluginImport.flatConfigs.recommended,
+  eslintPluginImportX.flatConfigs.recommended,
+  eslintPluginImportX.flatConfigs.typescript,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   eslintPluginReact.configs.flat.recommended,
@@ -33,14 +33,11 @@ export default tseslint.config(
     languageOptions: {
       parserOptions: {
         projectService: true,
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         tsconfigRootDir: import.meta.name,
       },
     },
     settings: {
-      'import/resolver': {
-        typescript: { project: 'tsconfig.app.json' },
-      },
+      'import-x/resolver-next': [createTypeScriptImportResolver()],
       react: { version: 'detect' },
     },
   },
@@ -91,8 +88,8 @@ export default tseslint.config(
         },
       ],
 
-      'import/no-default-export': 'error',
-      'import/order': [
+      'import-x/no-default-export': 'error',
+      'import-x/order': [
         'error',
         {
           groups: ['builtin', 'external', 'internal', 'parent', 'sibling'],
