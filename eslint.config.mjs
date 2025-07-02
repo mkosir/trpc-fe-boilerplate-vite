@@ -26,7 +26,6 @@ export default tseslint.config(
       'routeTree.gen.ts',
       'src/common/trpc-api-boilerplate/api-types',
       'eslint.config.mjs',
-      'postcss.config.mjs',
     ],
   },
   {
