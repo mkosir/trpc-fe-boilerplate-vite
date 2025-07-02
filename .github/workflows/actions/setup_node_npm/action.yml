@@ -1,0 +1,15 @@
+name: 'setup_node_npm'
+description: 'Setup Node/npm ⚙️'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Node.js & Cache dependencies
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.x'
+        cache: 'npm'
+
+    - name: Install dependencies
+      shell: bash
+      run: npm ci
